@@ -1,8 +1,8 @@
 ---
 layout: post_layout
 title: 开始篇
-time: 2016年03月05日 星期五
-location: 上海
+time: 2016年05月13日 星期五
+location: 北京
 pulished: true
 excerpt_separator: "```"
 ---
@@ -11,9 +11,8 @@ excerpt_separator: "```"
 
 感谢 [github](https://github.com) 提供的 Github Pages 功能!
 
-此博客布局参考了 [Monkey Snatch Banana](http://www.monkeysnatchbanana.com/) 博客
+此博客布局完全使用了 [Monkey Snatch Banana](https://liungkejin.github.io/) 博客模板
 
-个人页面应用了 [resumecard](http://ddbullfrog.github.io/resumecard/) 项目
 
 
 ```bash

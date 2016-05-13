@@ -1,5 +1,4 @@
-# Kejin
+# Shadow
 
-> 自己选的路，跪着也要走下去
+> I love bleak day, love story may happen likely
 
-![Blog](/assets/img/blog.png)

@@ -11,7 +11,7 @@ excerpt_separator: "```"
 
 感谢 [github](https://github.com) 提供的 Github Pages 功能!
 
-此博客布局完全使用了 [Monkey Snatch Banana](https://liungkejin.github.io/) 博客模板
+此博客布局完全使用了 [liungkejin](https://liungkejin.github.io/) 博客模板
 
 
 

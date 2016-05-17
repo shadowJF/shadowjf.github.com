@@ -13,6 +13,13 @@ highlight: true
 
 timezone: Asia/Beijing
 
+gems: [jekyll-paginate]
+
+paginate: 5
+paginate_path: "page:num"
+
+
+
 markdown: kramdown
 kramdown:
   auto_ids: true

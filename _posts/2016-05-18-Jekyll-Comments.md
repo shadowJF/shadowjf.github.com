@@ -104,6 +104,26 @@ this.page.identifier = {}
 
 所以我没有替换，因为这个问题只出现在一个页面能通过多个url访问的情况中，所以我不管它也是能行的。。。。
 
+
+	补充：
+	后来发现，github的个人主页，也是可以通过http和https同时访问的
+	因此也会出现：
+	一个人通过http访问留下的评论在https访问时没法get到它的评论的情况
+	于是我在post的html代码中加上：
+	<input type="text" id="identifier" value={{ page.title }} hidden />
+	<input type="text" id="url" value={{site.url}}{{page.url}} hidden />
+
+	这里的site.url是我们在_config.yml文件中设置好的
+	url: https://shadowjf.github.io
+	
+	然后，将之前的注释代码，去掉，改为：
+	var disqus_config = function () {
+        this.page.url = document.getElementById("url").value;  
+        this.page.identifier = document.getElementById("text").value; 
+    };
+
+	这样，应该可以解决这个问题了
+
 好了最后，我们来看看效果吧
 
 ![](https://github.com/shadowJF/shadowjf.github.com/blob/master/_assets/8.jpg?raw=true)

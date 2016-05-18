@@ -14,7 +14,7 @@ excerpt_separator: "``"
 
 结果如下：
 
-![]({{site.pictureurl}}9.jpg&raw=true)
+![]({{site.pictureurl}}9.jpg?raw=true)
 
 ``
 
@@ -25,13 +25,9 @@ excerpt_separator: "``"
 这里的menu.html也就是你们要做tag分类的那个页面，
 
 我之前的menu.html是按如下方式实现：
-
-	
-    ---
-    layout: blog_layout
-    ---
     
-    {% for post in site.posts %}
+	\\这里的%前我都加了\是因为不加的话，jekyll会把下面的代码编译执行，变成执行后的形式
+    {\% for post in site.posts \%}
     <section class="smenu">
     {{ post.time  | date: "%Y/%m/%d" }}
     &nbsp;&nbsp;
@@ -40,35 +36,27 @@ excerpt_separator: "``"
     &nbsp;&nbsp; {{post.title}} &nbsp;&nbsp; 
     </a>
     </section>
-    {% endfor %}
+    {\% endfor \%}
+
 
 然后借助[https://github.com/Huxpro/huxpro.github.io](https://github.com/Huxpro/huxpro.github.io)的帮助，我将其改为：
 
-    	---
-    layout: blog_layout
-    ---
-    	<div class="row">
-    
+
+	<div class="row">
     <!-- 标签云 -->
     			<div id='tag_cloud' class="tags">
-    				{% for tag in site.tags %}
+    				{\% for tag in site.tags \%}
     				<a  href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-    				{% endfor %}
-    			</div>
-    
-    <!--<blockquote class="tag-comments">
-    标签命名规范：
-    <li>行业观察、职位、公司优先使用中文</li>
-    <li>外国产品、术语优先使用英文</li>
-    </blockquote>-->
+    				{\% endfor \%}
+    			</div>    
     
     <!-- 标签列表 -->
-    			{% for tag in site.tags %}
+    			{\% for tag in site.tags \%}
     			<div class="one-tag-list">
     			  	<span style="color:#6A5ACD" class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
     <span style="font-size:16px" class="tag-text">{{ tag[0] }}</span>
     </span>
-    				{% for post in tag[1] %}
+    				{\% for post in tag[1] \%}
     				  <!-- <li class="listing-item">
     				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
     				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -82,16 +70,16 @@ excerpt_separator: "``"
     					</a>
     				</section>
     				<hr>
-    				{% endfor %}
+    				{\% endfor \%}
     			</div>
-    			{% endfor %}
+    			{\% endfor \%}
     
     
     	</div>
 
 可以看到，它这里用到了标签云，总之看上去的效果是：
 
-![]({{site.pictureurl}}10.jpg&raw=true)
+![]({{site.pictureurl}}10.jpg?raw=true)
 
 然后我们在单纯修改了menu.html之后，标签云并不会像上图中那么好看，而只是单纯的文本，那么我们还需要什么呢？
 

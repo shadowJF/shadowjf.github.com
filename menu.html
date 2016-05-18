@@ -2,17 +2,13 @@
 layout: blog_layout
 ---
 	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
             <!-- 标签云 -->
 			<div id='tag_cloud' class="tags">
 				{% for tag in site.tags %}
-				<a style="font-size:18px" href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-				&nbsp;
+				<a  href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
 				{% endfor %}
 			</div>
-			
-			<br>
-			<br>
 
             <!--<blockquote class="tag-comments">
                 标签命名规范：
@@ -23,8 +19,8 @@ layout: blog_layout
             <!-- 标签列表 -->
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
-			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
-                    <span class="tag-text">{{ tag[0] }}</span>
+			  	<span style="color:#6A5ACD" class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
+                    <span style="font-size:16px" class="tag-text">{{ tag[0] }}</span>
                 </span>
 				{% for post in tag[1] %}
 				  <!-- <li class="listing-item">
@@ -44,5 +40,5 @@ layout: blog_layout
 			</div>
 			{% endfor %}
 
-		</div>
+
 	</div>

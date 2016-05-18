@@ -5,6 +5,7 @@ favicon: /assets/img/shadow.jpg
 baseurl:
 url: https://shadowjf.github.io
 rss_url:
+pictureurl: https://github.com/shadowJF/shadowjf.github.com/blob/master/_assets/
 
 # Build settings
 

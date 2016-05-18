@@ -4,7 +4,7 @@ title: Jekyll首页文章分页
 time: 2016年05月17日 星期二
 location: 北京
 pulished: true
-categories: Jekyll
+tag: jekyll
 excerpt_separator: "``"
 ---
 

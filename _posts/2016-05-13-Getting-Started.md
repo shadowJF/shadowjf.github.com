@@ -4,6 +4,7 @@ title: 开始篇
 time: 2016年05月13日 星期五
 location: 北京
 pulished: true
+tag: life
 excerpt_separator: "```"
 ---
 

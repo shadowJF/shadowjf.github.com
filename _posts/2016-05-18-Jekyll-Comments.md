@@ -4,6 +4,7 @@ title: Jekyll添加评论系统
 time: 2016年05月18日 星期三
 location: 北京
 pulished: true
+tag: jekyll
 excerpt_separator: "``"
 ---
 

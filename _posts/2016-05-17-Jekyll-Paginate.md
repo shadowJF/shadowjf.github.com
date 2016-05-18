@@ -38,35 +38,13 @@ urces at http://jekyllrb.com/help/!
 
 gem install jekyll-paginate 即可
 
-接着我们需要在原来的index.html中 添加如下代码：
+接着我们需要在原来的index.html中 添加如下网页中的代码：
 
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-      {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% else %}
-    <span>&laquo; Prev</span>
-      {% endif %}
-    
-    {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-    {% endfor %}
-    
-      {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% else %}
-    <span>Next &raquo;</span>
-      {% endif %}
-    </div>
-    {% endif %}
+[http://jekyll.bootcss.com/docs/pagination/](http://jekyll.bootcss.com/docs/pagination/)
 
-然后将原来的
+（这里为什么不直接把代码贴过来，是因为，貌似对liquid语言的支持不够，我把代码贴过来后，jekyll没法正常显示，但是其他语言是可以显示的）
+    
+最后将原来的
 
 for post in site.posts
 

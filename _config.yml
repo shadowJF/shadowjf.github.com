@@ -9,7 +9,6 @@ rss_url:
 # Build settings
 
 highlight: true
-#highlighter: rouge
 
 timezone: Asia/Beijing
 

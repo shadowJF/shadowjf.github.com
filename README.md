@@ -1,6 +1,6 @@
 # Shadow
 
-> I love bleak day, love story may happen likely
+> I love bleak day, like something will happen
 
 
 

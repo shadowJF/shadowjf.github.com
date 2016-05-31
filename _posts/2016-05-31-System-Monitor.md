@@ -153,8 +153,7 @@ excerpt_separator: "``"
     	for (SystemInfoFetcher fetcher : fetcherList) {
       		sysInfos.mergeIn(fetcher.fetch());
     	}
-    
-   	 	return sysInfos;
+    	return sysInfos;
       }
     
     }
@@ -359,7 +358,7 @@ excerpt_separator: "``"
       public JsonObject fetch() {
     	// 硬盘总大小
     	int totalStorage = 0;
-   	 	// 已用硬盘大小
+		// 已用硬盘大小
     	int usedStorage = 0;
     	// 剩余硬盘大小
     	int freeStorage = 0;
@@ -414,8 +413,7 @@ excerpt_separator: "``"
       		case SystemInfoSchema.STORAGE:
     			return new StorageFetcher();
       		default:
-    			throw new IllegalArgumentException("system info fetcher type : " + type
-    			+ " is not defined, please check SystemInfoSchema for defined fetcher type");
+    			throw new IllegalArgumentException("system info fetcher type : " + type + " is not defined, please check SystemInfoSchema for defined fetcher type");
     	}
       }
     }

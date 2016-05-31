@@ -18,6 +18,7 @@ excerpt_separator: "``"
 
 监控主类，实例化后默认添加四个性能抓取器：物理内存、JVM内存、Cpu、磁盘，当然你也可以自己选择所需要的性能抓取器，当你调用getSystemInfos方法后，会抓取Monitor中包含的抓取器的性能数据
 
+```java
     import java.util.ArrayList;
     import java.util.List;
     import java.util.stream.Collectors;
@@ -157,10 +158,12 @@ excerpt_separator: "``"
       }
     
     }
+```
 
 #### SystemInfoFetcher ####
 性能抓取器接口，每一个性能抓取器都需要实现该接口，我们默认实现了四类，如上所说有：CPU、磁盘、物理内存、JVM内存，如果有自己还想抓取的性能数据，可以自己实现该接口
 
+```java
     import io.vertx.core.json.JsonObject;
     
     /**
@@ -192,10 +195,12 @@ excerpt_separator: "``"
        */
       public String infoType();
     }
+```
 
 #### CpuFetcher ####
 抓取CPU信息
 
+```java
     import java.lang.management.ManagementFactory;
     import com.sun.management.OperatingSystemMXBean;
     
@@ -236,9 +241,11 @@ excerpt_separator: "``"
       }
     
     }
+```
 
 #### JvmMemoryFetcher ####
 
+```java
     import io.vertx.core.json.JsonObject;
     
     /**
@@ -282,10 +289,11 @@ excerpt_separator: "``"
       }
     
     }
+```
 
 #### PhysicalMemoryFetcher ####
 
-
+```java
     import java.lang.management.ManagementFactory;
     import com.sun.management.OperatingSystemMXBean;
     import io.vertx.core.json.JsonObject;
@@ -332,10 +340,11 @@ excerpt_separator: "``"
       }
     
     }
+```
 
 #### StorageFetcher #### 
 
-
+```java
     import java.io.File;
     import io.vertx.core.json.JsonObject;
     
@@ -386,10 +395,12 @@ excerpt_separator: "``"
       }
     
     }
+```
     
 #### SystemInfoFetcherFactory ####
 性能抓取器工厂类，根据性能名称实例化抓取器
 
+```java
     /**
      *
      * <code>SystemInfoFetcherFactory<code>
@@ -417,9 +428,11 @@ excerpt_separator: "``"
     	}
       }
     }
-    
+```    
+
 #### SystemInfoSchema ####
 
+```java
     /**
      *
      * <code>SystemInfoSchema<code>
@@ -458,10 +471,13 @@ excerpt_separator: "``"
       public static final String SYSTEM_CPU_LOAD = "system_cpu_load";
     
     }
+```
 
 如下两行简单代码就可以获取性能数据：
 
-	SystemMonitor sysMonitor = new SystemMonitor();
-    JsonObject sysInfos = sysMonitor.getSystemInfos();
+```java
+SystemMonitor sysMonitor = new SystemMonitor();
+JsonObject sysInfos = sysMonitor.getSystemInfos();
+```
 
 	

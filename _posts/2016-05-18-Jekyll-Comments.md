@@ -74,8 +74,8 @@ Add Disqus To Site
     */
     /*
     var disqus_config = function () {
-    this.page.url = {{page.url}};  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = {{page.title}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = {\{page.url}\};  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = {\{page.title}\}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };*/
     
     (function() {  // DON'T EDIT BELOW THIS LINE
@@ -111,8 +111,8 @@ this.page.identifier = {}
 	因此也会出现：
 	一个人通过http访问留下的评论在https访问时没法get到它的评论的情况
 	于是我在post的html代码中加上：
-	<input type="text" id="identifier" value={{ page.title }} hidden />
-	<input type="text" id="url" value={{site.url}}{{page.url}} hidden />
+	<input type="text" id="identifier" value={\{ page.title }\} hidden />
+	<input type="text" id="url" value={\{site.url}\}{\{page.url}\} hidden /> //这里的斜杠你们自己需要去掉，我这里加斜杠是因为不加的话，jekyll就自动替换相应的值了
 
 	这里的site.url是我们在_config.yml文件中设置好的
 	url: https://shadowjf.github.io

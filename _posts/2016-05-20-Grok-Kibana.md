@@ -4,7 +4,7 @@ title: Grok实战
 time: 2016年05月23日 星期一
 location: 北京
 pulished: true
-tag: logstash
+tag: ELK
 excerpt_separator: "``"
 ---
 

@@ -166,8 +166,115 @@ excerpt_separator: "----"
 
 　　做搜索suggest的
 
+### **ES 常用api** ###
 
+	查看集群状态
+	curl -XGET 'localhost:9200/_cat/health?v&pretty'
+
+	查看node列表
+	curl -XGET 'localhost:9200/_cat/nodes?v&pretty'
+
+	列出所有索引
+	curl -XGET 'localhost:9200/_cat/indices?v&pretty'
+
+	查询某一个索引
+	curl -XGET 'localhost:9200/repo?pretty'
+
+	创建索引，索引名为customer
+	curl -XPUT 'localhost:9200/customer?pretty&pretty'
+
+	向索引customer中插入一个ID为1的文档（如果重复执行，后面的会覆盖前面的数据）
+	curl -XPUT 'localhost:9200/customer/doc/59c07d91d471c886a18b82df?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"name": "John Doe"
+	}'
+
+	查询具体索引customer下指定ID的文档
+	curl -XGET 'localhost:9200/customer/doc/1?pretty&pretty'
+
+	删除索引
+	curl -XDELETE 'localhost:9200/customer?pretty&pretty'
+
+	不指定ID，向索引中插入文档（ES随机生成ID）
+	curl -XPOST 'localhost:9200/customer/doc?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"name": "Jane Doe"
+	}'
 	
+	更新文档
+	curl -XPOST 'localhost:9200/customer/doc/1/_update?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"doc": { "name": "Jane Doe", "age": 20 }
+	}'
+
+	更新文档（脚本增加年龄）
+	curl -XPOST 'localhost:9200/customer/doc/1/_update?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"script" : "ctx._source.age += 5"
+	}'
+
+	删除文档
+	curl -XDELETE 'localhost:9200/customer/doc/2?pretty&pretty'
+
+	批量删除（指定条件）
+	curl -XPOST 'localhost:9200/twitter/_delete_by_query?pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"query": { 
+    		"match": {
+      			"message": "some message"
+    		}
+  		}
+	}'
+
+	批量插入文档
+	curl -XPOST 'localhost:9200/customer/doc/_bulk?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{"index":{"_id":"1"}}
+	{"name": "John Doe" }
+	{"index":{"_id":"2"}}
+	{"name": "Jane Doe" }'
+
+	批量更新、删除
+	curl -XPOST 'localhost:9200/customer/doc/_bulk?pretty&pretty' -H 'Content-Type: application/json' -d'
+	{"update":{"_id":"1"}}
+	{"doc": { "name": "John Doe becomes Jane Doe" } }
+	{"delete":{"_id":"2"}}'
+
+	搜索bank索引
+	curl -XGET 'localhost:9200/bank/_search?q=*&sort=account_number:asc&pretty&pretty'
+
+	或者
+
+	curl -XPOST 'localhost:9200/bank/_search?pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"query": { "match_all": {} },
+  		"sort": [
+    		{ "account_number": "asc" }
+  		]
+	}'
+
+	curl -XPOST 'localhost:9200/repo-cus-test-test/_search?pretty' -H 'Content-Type: application/json' -d'
+	{
+  		"query": { "match_all": {} }
+	}'
+
+	查询mapping信息
+
+	curl -XGET 'localhost:9200/twitter/_mapping/tweet?pretty'
+
+	创建索引时，提供mapping信息
+
+	curl -XPUT 'localhost:9200/repo-cus-test-test?pretty' -H 'Content-Type: application/json' -d'
+	{
+    	"mappings": {
+        	"repo-cus-test-test" : {
+            	"properties" : {
+                	"questions" : {
+                    	"type" : "completion"
+                	}
+            	}
+        	}
+    	}
+	}'
 
 　　
 

@@ -332,7 +332,9 @@ excerpt_separator: "----"
 
 	easy_install-3.4 scipy
 
-　　scipy安装过程中可能会需要装一个atlas的东西，直接yum源安装即可，需要注意的是，在安装过程中，可能会报很多的warning，我一开始以为出错，后来发现只是warning而已，不要在意。。。。
+　　scipy安装过程中可能会需要装一个atlas、blas的东西，直接yum源安装即可，需要注意的是，在安装过程中，可能会报很多的warning，我一开始以为出错，后来发现只是warning而已，不要在意。。。。
+
+	yum install lapack lapack-devel blas blas-devel 
 
 　　最后，终于可以装gensim了
 
